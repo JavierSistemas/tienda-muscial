@@ -34,7 +34,7 @@
 <!--     	<property name="maxIdleTime" value="30000"></property> -->
     </bean>
 
-<!--  ::::::::::::::::::: SE ENCARGA DE ADMNISTRAR Y REGISTRAR LOS ENTITIES DE JPA Y SUS PROPIEDADES ::::::::::: -->
+<!--  ::::::::::::::::::: BEAN QUE SE ENCARGA DE ADMNISTRAR Y REGISTRAR LOS ENTITIES DE JPA Y SUS PROPIEDADES ::::::::::: -->
   <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
   	  <property name="dataSource" ref="dataSource"></property>
   	  <property name="packagesToScan" value="com.jr.sistemas.entities"></property>
@@ -55,10 +55,11 @@
   	<property name="dataSource" ref="dataSource"></property>
   </bean>
   
-  <!--  ::::::::::::::::::: PERMITE UTILIZAR LA ANOTACION @transactional DE SPRING PARA EJECUTAR TRANSACCIONES DE JPA ::::::::::::: -->
+  <!--  ::::::::::::::::::: ETIQUETA QUE PERMITE UTILIZAR LA ANOTACION @transactional DE SPRING PARA EJECUTAR TRANSACCIONES DE JPA ::::::::::::: -->
   <tx:annotation-driven transaction-manager="transactionManager" />
-  <!-- :::::::::::: PARA EJECUTAR LAS TRANSACCIONES  A LA BD (DAO)  ::::::::::::::::::::: -->
-  <jpa:repositories base-package="com.jr.sistemas.data.repositories" entity-manager-factory-ref="entityManagerFactory"></jpa:repositories>
+  
+  <!-- :::::::::::: ETIQUETA QUE PERMITE REGISTRAR LAS CLSES QUE SE ENCARGAN DE EJECUTAR LAS TRANSACCIONES  A LA BD (DAO)  ::::::::::::::::::::: -->
+  <jpa:repositories base-package="com.jr.sistemas.data.dao" entity-manager-factory-ref="emf"></jpa:repositories>
 </beans>	
 
 

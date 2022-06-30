@@ -22,9 +22,9 @@
 		<param-value>nova-dark</param-value>
 	</context-param>
 	<!-- Welcome page -->
-<!-- 	<welcome-file-list> -->
-<!-- 		<welcome-file>login.xhtml</welcome-file> -->
-<!-- 	</welcome-file-list> -->
+	<welcome-file-list>
+		<welcome-file>login.xhtml</welcome-file>
+	</welcome-file-list>
 
 	<!-- JSF mapping -->
 	<servlet>
@@ -42,9 +42,5 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-<!-- 	<listener> -->
-<!-- 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class> -->
-<!-- 	</listener> -->
 
 </web-app>
